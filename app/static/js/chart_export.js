@@ -1,0 +1,1 @@
+document.addEventListener('click',e=>{if(!e.target.classList.contains('download-chart'))return;const c=document.getElementById(e.target.dataset.chart);if(!c)return;const a=document.createElement('a');a.download=e.target.dataset.chart+'.png';a.href=c.toDataURL('image/png');a.click();});

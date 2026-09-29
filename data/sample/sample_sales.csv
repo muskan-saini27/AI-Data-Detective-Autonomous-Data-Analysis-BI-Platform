@@ -1,0 +1,10 @@
+order_id,product,category,region,units,price,revenue
+1001,Laptop,Electronics,North,2,55000,110000
+1002,Mouse,Electronics,South,10,800,8000
+1003,Chair,Furniture,West,4,4500,18000
+1004,Keyboard,Electronics,North,,1200,1200
+1005,Desk,Furniture,East,3,7000,21000
+1005,Desk,Furniture,East,3,7000,21000
+1006,Monitor,Electronics,South,1,18000,18000
+1007,Phone,Electronics,West,2,25000,50000
+1008,Chair,Furniture,North,30,4500,135000
