@@ -1,32 +1,26 @@
 # 🔎 AI Data Detective — Autonomous Data Analysis & BI Platform
 
-A Flask-based automated data analysis and business intelligence platform that transforms raw CSV and Excel datasets into data quality reports, exploratory analysis, visualizations, trends, anomalies, potential root causes, business insights, and natural-language answers.
+A Flask-based, dataset-adaptive data analysis and business intelligence platform that transforms CSV and Excel datasets into automated profiling, data-quality reports, exploratory analysis, visualizations, anomaly detection, trend analysis, potential drivers, business recommendations, natural-language data questions, and downloadable reports.
 
 ---
 
 ## 🚀 Overview
 
-AI Data Detective is an end-to-end data analytics platform built with Python, Flask, Pandas, NumPy, HTML, CSS, and JavaScript.
+**AI Data Detective** is an end-to-end analytics platform built with Python, Flask, Pandas, NumPy, JavaScript, HTML, CSS, and Chart.js.
 
-Users can upload a CSV or Excel dataset and automatically receive:
+The system is designed to work with different types of structured datasets rather than being limited to a single business domain.
 
-- Dataset profiling
-- Data quality analysis
-- Statistical analysis
-- Exploratory data analysis
-- Data visualizations
-- Trend detection
-- Anomaly detection
-- Correlation analysis
-- Segment-level analysis
-- Potential root-cause insights
-- Natural-language data questions
-- Business recommendations
-- Downloadable PNG visualizations
-- Excel reports
-- PDF reports
+Users can upload a CSV or Excel dataset, after which the platform automatically detects the dataset schema and generates relevant analysis based on the available columns.
 
-The platform is designed to reduce repetitive manual analysis and provide a structured workflow from raw data to actionable insights.
+The application has been tested with different dataset types, including:
+
+- Student datasets
+- IPL / sports datasets
+- McDonald's datasets
+- Sales datasets
+- AI usage datasets
+
+The goal is to reduce repetitive manual analysis and provide a structured workflow from raw data to actionable insights.
 
 ---
 
@@ -35,108 +29,176 @@ The platform is designed to reduce repetitive manual analysis and provide a stru
 ### 📂 Dataset Upload
 
 - Upload CSV datasets
-- Upload Excel datasets
+- Upload XLS datasets
+- Upload XLSX datasets
+- Drag-and-drop dataset upload
 - Automatic dataset profiling
 - Dataset preview
 - Row and column analysis
+
+### 🧠 Automatic Schema Detection
+
+The platform automatically identifies different column roles, including:
+
+- Numeric metrics
+- Categorical dimensions
+- Date/time columns
+- Identifier columns
+- Text columns
+- Boolean columns
+- Low-information / constant columns
+
+The detected schema is then used to determine which analyses, charts, questions, and recommendations are appropriate for the uploaded dataset.
 
 ### 🧹 Data Quality Analysis
 
 - Missing-value detection
 - Duplicate-row detection
 - Data quality scoring
-- Numeric data validation
-- Outlier detection using statistical methods
+- Numeric validation
+- Statistical irregularity detection
+- Data-quality findings
 
 ### 📊 Exploratory Data Analysis
 
 - Numeric statistics
-- Mean, median, minimum, maximum, and standard deviation
-- Categorical value analysis
-- Frequency analysis
+- Mean
+- Median
+- Minimum
+- Maximum
+- Standard deviation
+- Missing values
+- Categorical frequency analysis
+- Unique-value analysis
 - Correlation analysis
-- Automatic analytical findings
+- Automated analytical findings
 
 ### 📈 Trend Intelligence
 
+Where suitable columns are available, the platform can perform:
+
 - Automatic trend detection
-- Increasing/decreasing/flat trend identification
-- Percentage change analysis
-- Trend strength analysis
-- Time-series-oriented insights where suitable
+- Increasing / decreasing / weak trend identification
+- Percentage-change analysis
+- Trend-strength analysis
+- Date/time-oriented analysis
+- Early-to-late observation comparison
+
+Identifier-like columns are excluded from business trend analysis when detected.
 
 ### 🚨 Anomaly Detection
 
-- Statistical anomaly detection
-- IQR-based outlier detection
-- Z-score based detection
-- Anomaly counts by numeric column
+The platform identifies unusual numeric observations using statistical techniques such as:
+
+- IQR-based detection
+- Z-score-based detection
+- Outlier counting
+- Anomaly hotspots
 - Sample anomalous records
 
-### 🔍 Root-Cause Intelligence
+### 🔍 Potential Driver Analysis
 
-- Segment-level analysis
-- Comparison of categorical groups against overall metrics
-- Identification of potential business drivers
-- Percentage difference analysis
-- Association-strength analysis
+The platform compares categorical segments against overall numeric metrics to identify potentially important statistical associations.
 
-> Note: The root-cause module identifies statistical associations and potential drivers. It does not claim causal relationships.
+Examples include:
+
+- Category-level differences
+- Region-level differences
+- Department-level differences
+- City-level differences
+- Team-level differences
+- Segment-level metric comparisons
+
+> **Important:** These are statistical associations and potential drivers. They do not prove causation.
 
 ### 💬 Ask Your Data
 
-Users can ask questions about their uploaded dataset using natural language.
+Users can ask questions about the uploaded dataset using natural-language-style questions.
 
-Example questions:
-
-- How many rows are there?
-- How many columns are there?
-- What is the average Revenue?
-- What is the highest Revenue?
-- What is the lowest Revenue?
-- What is the total Revenue?
-- What is the median Revenue?
-- What is the most common Category?
-- What is the most common Region?
-- What is the strongest correlation?
-
-The Q&A engine uses deterministic local data-analysis logic rather than requiring an external LLM or API key.
-
-### 📊 Visual Analytics
-
-The platform automatically generates visual representations of analyzed data.
-
-Visualizations can be downloaded as:
-
-- PNG images
-- Analytical reports
-
-### 📥 Report Export
-
-Users can export analysis results into:
-
-- Excel reports
-- PDF reports
-- PNG visualizations
-
-This makes the analysis easier to share and use for reporting.
-
----
-
-## 📌 Data Analysis Workflow
+Examples:
 
 ```text
+How many rows are there?
+How many columns are there?
+How many missing values are there?
+What is the average Revenue?
+What is the highest Revenue?
+What is the total Revenue?
+What is the median Revenue?
+What is the most common Category?
+What is the strongest correlation?
+The question suggestions are generated from the currently detected dataset schema.
+
+When a new dataset is analyzed, the previous Q&A context is cleared and new dataset-specific questions are generated.
+
+The Q&A engine operates locally using deterministic analysis logic and does not require an external LLM API key.
+
+📊 Visual Investigation
+
+The dashboard automatically creates visualizations based on the detected dataset structure.
+
+Depending on the available columns, the system can generate:
+
+Metric trends over time
+Metric trends by row sequence
+Top categorical-value charts
+Average metric by category/dimension
+Dataset-specific visualizations
+
+Charts are responsive and can be downloaded as PNG files.
+
+Wide datasets and long column names are handled through responsive chart and table layouts.
+
+💡 Business Recommendations
+
+The platform generates evidence-based recommendations using detected analytical signals such as:
+
+Data-quality issues
+Anomalies
+Trends
+Potential drivers
+Strong numeric relationships
+Important segment differences
+
+Recommendations are adapted to the current dataset rather than being hard-coded to a single business domain.
+
+📥 Report Export
+
+The platform supports:
+
+PDF executive reports
+Excel analytical reports
+PNG chart downloads
+
+PDF reports can include:
+
+Dataset overview
+Key metrics
+Data-quality information
+Business recommendations
+Anomalies
+Trend insights
+Potential drivers
+
+Excel reports can include multiple analytical sheets such as:
+
+Executive Summary
+Cleaned Data
+Numeric Summary
+Categorical Summary
+Anomalies
+📌 Data Analysis Workflow
 Upload Dataset
       ↓
-Dataset Profiling
+Automatic Schema Detection
+      ↓
+Data Profiling
       ↓
 Data Quality Analysis
       ↓
-Data Cleaning & Validation
-      ↓
 Exploratory Data Analysis
       ↓
-Visualizations
+Automatic Visualizations
       ↓
 Trend Detection
       ↓
@@ -144,16 +206,16 @@ Anomaly Detection
       ↓
 Correlation Analysis
       ↓
-Root-Cause / Segment Analysis
+Potential Driver / Segment Analysis
       ↓
-Business Insights
+Business Recommendations
       ↓
 Ask Your Data
       ↓
-Export Reports
+Export PDF / Excel / PNG
 📊 Key Analytics
 
-The platform analyzes datasets using metrics such as:
+The platform can automatically analyze available dataset characteristics such as:
 
 Total Rows
 Total Columns
@@ -162,63 +224,128 @@ Duplicate Records
 Data Quality Score
 Numeric Statistics
 Categorical Frequencies
+Unique Values
 Correlations
 Outliers
 Anomalies
 Trends
 Segment-Level Differences
 Potential Drivers
-Automated Insights
+Automated Findings
+Business Recommendations
+
+The exact dashboard metrics depend on the schema detected in the uploaded dataset.
+
 🧠 Intelligence Modules
 Data Quality Engine
 
-Evaluates the overall quality of an uploaded dataset by analyzing missing values, duplicates, and statistical irregularities.
+Evaluates the quality of an uploaded dataset using indicators such as missing values, duplicates, and statistical irregularities.
 
 EDA Engine
 
-Automatically analyzes numeric and categorical variables and generates descriptive statistics and visualizations.
+Automatically analyzes numeric and categorical variables and produces descriptive statistics and analytical findings.
+
+Schema Detection Engine
+
+Classifies dataset columns into useful analytical roles such as metrics, dimensions, dates, identifiers, text, and booleans.
 
 Anomaly Engine
 
-Uses statistical methods such as IQR and Z-score techniques to identify unusual observations.
+Uses statistical techniques such as IQR and Z-score analysis to identify unusual observations.
 
 Trend Engine
 
-Analyzes numeric trends and identifies increasing, decreasing, or relatively flat patterns where appropriate.
+Analyzes appropriate numeric columns over time or observation sequence and identifies increasing, decreasing, or weak trends.
 
-Root-Cause Engine
+Potential Driver Engine
 
-Compares segments within categorical dimensions against overall numeric metrics to identify potential drivers and significant differences.
+Compares categorical segments against overall numeric metrics to identify potentially significant statistical differences.
+
+Potential drivers represent association-based evidence and should not be interpreted as proof of causation.
 
 Q&A Engine
 
-Processes natural-language questions and maps them to dataset-level, numeric, categorical, and correlation analysis operations.
+Maps supported natural-language-style questions to dataset calculations such as:
+
+Counts
+Totals
+Averages
+Medians
+Minimums
+Maximums
+Most common categories
+Correlations
+
+The Q&A engine runs locally and does not require an external AI API.
+
+Recommendation Engine
+
+Combines analytical findings into evidence-based recommendations tailored to the uploaded dataset.
+
+Reporting Engine
+
+Generates downloadable PDF and Excel reports from the current analysis.
 
 🛠️ Technologies Used
+Backend
 Python
 Flask
 Pandas
 NumPy
-JavaScript
+Frontend
 HTML5
 CSS3
-Matplotlib
-Plotly
+JavaScript
+Chart.js
+Reporting
+ReportLab
 OpenPyXL
+Development
+Git
+GitHub
 🎯 Project Objective
 
-The primary objective of AI Data Detective is to automate repetitive data-analysis tasks and help users move from raw datasets to meaningful analytical insights.
+The primary objective of AI Data Detective is to automate repetitive data-analysis tasks and help users move from raw datasets to structured analytical insights.
 
 The platform focuses on:
 
-Improving data quality understanding
+Understanding dataset quality
+Automatically identifying dataset structure
 Automating exploratory analysis
 Detecting unusual patterns
 Identifying trends
-Finding potential data-driven business drivers
+Finding potential data-driven drivers
 Answering common analytical questions
-Presenting results through visualizations
-Generating downloadable analytical reports
+Generating dataset-specific visualizations
+Providing evidence-based recommendations
+Producing downloadable analytical reports
+🌐 Dataset-Adaptive Design
+
+One of the core goals of the project is to avoid relying on fixed business columns such as Revenue, Category, or Region.
+
+For example:
+
+Sales Dataset
+Revenue       → Metric
+Category      → Dimension
+Region        → Dimension
+Order_ID      → Identifier
+Date          → Date/Time
+Student Dataset
+Math          → Metric
+Science       → Metric
+Attendance    → Metric
+Class         → Dimension
+Student_ID    → Identifier
+IPL Dataset
+team1_runs    → Metric
+team2_runs    → Metric
+match_type    → Dimension
+season        → Date/Time / temporal field
+match_number  → Identifier-like field
+
+The same analytical system adapts its dashboard, charts, Q&A suggestions, anomalies, trends, and recommendations according to the detected schema.
+
 📁 Project Structure
 AI-Data-Detective/
 │
@@ -266,17 +393,19 @@ git clone https://github.com/muskan-saini27/AI-Data-Detective-Autonomous-Data-An
 2. Open the project directory
 cd AI-Data-Detective-Autonomous-Data-Analysis-BI-Platform
 3. Create a virtual environment
+Windows
 python -m venv venv
+Linux / macOS
+python3 -m venv venv
 4. Install dependencies
 Windows
 venv\Scripts\python.exe -m pip install -r requirements.txt
 Linux / macOS
 python3 -m pip install -r requirements.txt
 5. Start the Flask application
+Windows
 venv\Scripts\python.exe run.py
-
-Or on Linux/macOS:
-
+Linux / macOS
 python run.py
 6. Open the application
 
@@ -291,54 +420,61 @@ Run:
 
 python tests/test_core.py
 
-The test suite validates:
+The test suite is designed to validate areas such as:
 
 Dataset analysis
 Multiple dataset schemas
-Report generation
-PDF export
-Excel export
+Dataset-adaptive calculations
+Q&A functionality
+Recommendation generation
+PDF report generation
+Excel report generation
 📄 Sample Dataset
 
-A sample sales dataset is included in:
+A sample sales dataset is included at:
 
 data/sample/sample_sales.csv
 
-You can use it to test the application immediately after starting the Flask server.
+Use it for a quick first test after starting the application.
+
+The platform can also be tested with other structured CSV/XLS/XLSX datasets.
 
 🔐 Data & Privacy
 
-The application is designed for local dataset analysis.
+The application is designed primarily for local dataset analysis.
 
-Uploaded datasets are processed by the local Flask application and are not sent to an external AI API as part of the deterministic analysis and Q&A workflow.
+Uploaded datasets are processed by the local Flask application and the deterministic Q&A workflow does not require sending the dataset to an external AI API.
 
-Users should still avoid uploading confidential or sensitive business information when using the application in an unsecured environment.
+Users should still avoid uploading confidential or sensitive information when running the application in an unsecured environment.
 
 🚧 Future Enhancements
 
 Possible future improvements include:
 
-Advanced machine learning-based insights
+Advanced machine-learning-based insights
 More sophisticated natural-language querying
 Additional statistical tests
 Interactive dashboard filters
-More advanced business recommendation models
+Advanced business recommendation models
 Database connectivity
 Scheduled report generation
 Cloud deployment
 User authentication
-Dataset history and project management
+Dataset history
+Project management
 Additional BI export formats
 👨‍💻 Author
 
 Muskan Saini
 
-B.Tech Computer Science Student | Data Analytics | Python | SQL | Power BI | Machine Learning
+B.Tech Computer Science Student
+Data Analytics | Python | SQL | Power BI | Machine Learning
 
-⭐ If you found this project useful, consider giving the repository a star!
+⭐ Support
 
-.
+If you find this project useful, consider giving the repository a star.
 
+Built with Python • Flask • Pandas • NumPy • Chart.js
 
 
 
